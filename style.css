@@ -28,10 +28,11 @@ body {
   left: 100vw;
   height: 70vh;
   width: 6vw;
-  background-color: #ffffff;
+  background-color: green;
+  /* background-color: #ffffff;
   background-image: url("./assets/sprite2.png");
   background-size: cover;
-  background-position: center;
+  background-position: center; */
 }
 .start_info {
   position: relative;
