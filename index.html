@@ -1,22 +1,42 @@
-
 <!DOCTYPE html>
 <html>
-  
-<head>
-    <link rel="stylesheet" href="style.css">
-</head>
-  
-<body>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <title>Kraš flappy</title>
+    <link rel="favicon" href="player-2.png" />
+  </head>
+
+  <body>
+    <div class="start">
+      <h1>Odaberite agenta s kojim želite igrati</h1>
+      <div class="agents">
+        <div class="agent">
+          <img src="./assets/player.png" alt="" />
+          <button onclick="firstAgent()">Agent 1</button>
+        </div>
+        <div class="agent">
+          <img src="./assets/player2.png" alt="" />
+          <button onclick="secondAgent()">Agent 2</button>
+        </div>
+      </div>
+      <h2 id="chosen_agent"></h2>
+      <button id="next" onclick="next()">Dalje</button>
+    </div>
+
+    <div class="overlay"></div>
+    <!-- game viewport -->
     <div class="background"></div>
-    <img class="bird" src="logo.png" alt="bird-img">
-    <div class="message">
-        Press Enter To Start Game
-    </div>
+    <img class="player" src="./assets/player2.png" alt="player-img" />
     <div class="score">
-        <span class="score_title"></span>
-        <span class="score_val"></span>
+      <span class="score_title"></span>
+      <span class="value"></span>
     </div>
+    <div class="start_info">Kliknite "enter" za početak igre.</div>
+    <h1 class="game_lost">Kraj!</h1>
+    <button onClick="window.location.reload(), refreshPage();" class="btn">
+      Početni izbornik
+    </button>
+
     <script src="main.js"></script>
-</body>
-  
+  </body>
 </html>
