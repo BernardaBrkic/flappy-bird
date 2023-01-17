@@ -1,61 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
+
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
 body {
-	height: 100vh;
-	width: 100vw;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Concert One", cursive;
 }
-
 .background {
-	height: 100vh;
-	width: 100vw;
-	background-color: skyblue;
+  height: 100vh;
+  width: 100vw;
+  background-color: #4fbae4;
 }
-
-.bird {
-	height: 100px;
-	width: 160px;
-	position: fixed;
-	top: 40vh;
-	left: 30vw;
-	z-index: 100;
+.player {
+  height: 110px;
+  position: fixed;
+  top: 40vh;
+  left: 30vw;
+  z-index: 1;
 }
-
-.pipe_sprite {
-	position: fixed;
-	top: 40vh;
-	left: 100vw;
-	height: 70vh;
-	width: 6vw;
-	background-color: green;
+.obstacle_sprite {
+  position: fixed;
+  top: 40vh;
+  left: 100vw;
+  height: 70vh;
+  width: 6vw;
+  background-color: #ffffff;
+  background-image: url("./assets/sprite2.png");
+  background-size: cover;
+  background-position: center;
 }
-
-.message {
-	position: fixed;
-	z-index: 10;
-	height: 10vh;
-	font-size: 10vh;
-	font-weight: 100;
-	color: black;
-	top: 12vh;
-	left: 20vw;
-	text-align: center;
+.start_info {
+  position: relative;
+  bottom: 10vh;
+  z-index: 3;
+  font-size: 5vh;
+  font-weight: 100;
+  color: #882779;
+  text-shadow: #000000 2px 2px 4px;
+  text-align: center;
+  display: none;
 }
-
 .score {
-	position: fixed;
-	z-index: 10;
-	height: 10vh;
-	font-size: 10vh;
-	font-weight: 100;
-	color: goldenrod;
-	top: 0;
-	left: 0;
+  position: fixed;
+  z-index: 3;
+  font-size: 6vh;
+  font-weight: 100;
+  color: #882779;
+  text-shadow: #000000 4px 2px 4px;
+  top: 2vh;
+  left: 2vw;
 }
-
-.score_val {
-	color: gold;
+h1 {
+  color: #882779;
+  text-shadow: #000000 4px 2px 4px;
+  text-align: center;
+}
+.game_lost {
+  position: relative;
+  z-index: 3;
+  bottom: 65vh;
+  font-size: 8vh;
+  display: none;
+}
+button.btn,
+button#next {
+  background-color: #ffff00;
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: 2rem;
+  margin: 0 auto;
+  box-shadow: #000000 4px 2px 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+button.btn {
+  position: relative;
+  bottom: 60vh;
+  z-index: 4;
+  display: none;
+}
+.overlay,
+.start {
+  background-color: #000000d4;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  display: none;
+}
+.start {
+  display: block;
+  text-align: center;
+}
+.start h1 {
+  margin-top: 5vh;
+}
+.agents {
+  width: 100%;
+  max-width: 80%;
+  margin: 8vh auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.agent {
+  display: flex;
+  flex-direction: column;
+  width: 28%;
+  padding: 1rem;
+}
+.agents img {
+  width: 100%;
+  padding: 1rem;
+  background-color: #ffffff;
+  border: 10px solid #882779;
+  border-radius: 2rem;
+}
+.agent button {
+  color: #882779;
+  font-size: 3vh;
+  background-color: #ffffff;
+  border: 5px solid #4fbae4;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.agent button:active {
+  transform: scale(0.9);
+  transition: 0.2s;
+}
+h2#chosen_agent {
+  color: #4fbae4;
+  text-shadow: #000000 4px 2px 4px;
+  font-weight: normal;
+  margin-top: 2rem;
+}
+button#next {
+  display: none;
+  margin-top: 2rem;
 }
