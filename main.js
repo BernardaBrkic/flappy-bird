@@ -1,3 +1,30 @@
+// start menu
+wasChosen = false;
+
+function firstAgent() {
+  document.getElementById("chosen_agent").innerHTML = "Odabran je Agent 1!";
+  wasChosen = true;
+
+  if (wasChosen) {
+    document.getElementById("next").style.display = "block";
+    document.querySelector(".player").src = "./assets/player.png";
+  }
+}
+
+function secondAgent() {
+  document.getElementById("chosen_agent").innerHTML = "Odabran je Agent 2!";
+  wasChosen = true;
+
+  if (wasChosen) {
+    document.getElementById("next").style.display = "block";
+  }
+}
+
+function next() {
+  document.querySelector(".start").style.display = "none";
+  document.querySelector(".start_info").style.display = "block";
+}
+
 // Background scrolling speed
 let move_speed = 4;
 
@@ -30,7 +57,7 @@ let game_state = "Start";
 // Add an eventlistener for key presses
 document.addEventListener("keydown", (e) => {
   // Start the game if enter key is pressed
-  if (e.key == "Enter" && game_state != "Play") {
+  if (e.key == "Enter" && game_state != "Play" && wasChosen) {
     document.querySelectorAll(".obstacle_sprite").forEach((e) => {
       e.remove();
     });
@@ -162,31 +189,4 @@ function play() {
     requestAnimationFrame(create_obstacle);
   }
   requestAnimationFrame(create_obstacle);
-}
-
-// start menu
-wasChosen = false;
-
-function firstAgent() {
-  document.getElementById("chosen_agent").innerHTML = "Odabran je Agent 1!";
-  wasChosen = true;
-
-  if (wasChosen) {
-    document.getElementById("next").style.display = "block";
-    document.querySelector(".player").src = "./assets/player.png";
-  }
-}
-
-function secondAgent() {
-  document.getElementById("chosen_agent").innerHTML = "Odabran je Agent 2!";
-  wasChosen = true;
-
-  if (wasChosen) {
-    document.getElementById("next").style.display = "block";
-  }
-}
-
-function next() {
-  document.querySelector(".start").style.display = "none";
-  document.querySelector(".start_info").style.display = "block";
 }
