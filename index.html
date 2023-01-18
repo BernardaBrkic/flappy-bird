@@ -9,25 +9,40 @@
 
   <body>
     <div class="start">
-      <h1>Odaberite agenta s kojim želite igrati</h1>
+      <h1>Odaberite igrača s kojim želite igrati</h1>
       <div class="agents">
-        <div class="agent">
-          <img src="./assets/player.png" alt="" />
-          <button onclick="firstAgent()">Agent 1</button>
+        <div class="agent first">
+          <img src="./assets/Players/player.png" alt="" />
+          <button onclick="firstAgent()">Igrač 1</button>
         </div>
         <div class="agent second">
-          <img src="./assets/player2.png" alt="" />
-          <button onclick="secondAgent()">Agent 2</button>
+          <img src="./assets/Players/player2.png" alt="" />
+          <button onclick="secondAgent()">Igrač 2</button>
+        </div>
+        <div class="agent third">
+          <img src="./assets/Players/player3.png" alt="" />
+          <button onclick="thirdAgent()">Igrač 3</button>
+        </div>
+        <div class="agent fourth">
+          <img src="./assets/Players/player4.png" alt="" />
+          <button onclick="fourthAgent()">Igrač 4</button>
         </div>
       </div>
+
       <h2 id="chosen_agent"></h2>
       <button id="next" onclick="next()">Dalje</button>
     </div>
 
     <div class="overlay"></div>
+
+    <!-- soundtrack -->
+    <audio id="background_audio" src="./assets/Music/soundtrack.mp3"></audio>
+    <audio id="game_over_sound" src="./assets/Music/game_over.wav"></audio>
+    <!-- <audio id="jump_sound" src="./assets/Music/jump.wav"></audio> -->
+
     <!-- game viewport -->
     <div class="background"></div>
-    <img class="player" src="./assets/player2.png" alt="player-img" />
+    <img class="player" src="./assets/Players/player2.png" alt="player-img" />
     <div class="score">
       <span class="score_title"></span>
       <span class="value"></span>
