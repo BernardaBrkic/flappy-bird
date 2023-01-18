@@ -115,6 +115,10 @@ button.btn {
   width: 28%;
   padding: 1rem;
 }
+.second img {
+  padding: 2.5rem 1rem !important;
+  background-color: #4fbae4;
+}
 .agents img {
   width: 100%;
   padding: 1rem;
