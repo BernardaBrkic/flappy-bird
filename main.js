@@ -2,25 +2,48 @@
 wasChosen = false;
 
 function firstAgent() {
-  document.getElementById("chosen_agent").innerHTML = "Odabran je Agent 1!";
+  document.getElementById("chosen_agent").innerHTML = "Odabran je Igrač 1!";
   wasChosen = true;
 
   if (wasChosen) {
     document.getElementById("next").style.display = "block";
-    document.querySelector(".player").src = "./assets/player.png";
+    document.querySelector(".player").src = "./assets/Players/player.png";
   }
 }
 
 function secondAgent() {
-  document.getElementById("chosen_agent").innerHTML = "Odabran je Agent 2!";
+  document.getElementById("chosen_agent").innerHTML = "Odabran je Igrač 2!";
   wasChosen = true;
 
   if (wasChosen) {
     document.getElementById("next").style.display = "block";
+    document.querySelector(".player").src = "./assets/Players/player2.png";
   }
 }
 
+function thirdAgent() {
+  document.getElementById("chosen_agent").innerHTML = "Odabran je Igrač 3!";
+  wasChosen = true;
+
+  if (wasChosen) {
+    document.getElementById("next").style.display = "block";
+    document.querySelector(".player").src = "./assets/Players/player3.png";
+  }
+}
+
+function fourthAgent() {
+  document.getElementById("chosen_agent").innerHTML = "Odabran je Igrač 4!";
+  wasChosen = true;
+
+  if (wasChosen) {
+    document.getElementById("next").style.display = "block";
+    document.querySelector(".player").src = "./assets/Players/player4.png";
+  }
+}
+
+startGame = false;
 function next() {
+  startGame = true;
   document.querySelector(".start").style.display = "none";
   document.querySelector(".start_info").style.display = "block";
 }
@@ -51,13 +74,22 @@ let overlay = document.querySelector(".overlay");
 let game_lost = document.querySelector(".game_lost");
 let button = document.querySelector(".btn");
 
+// soundtrack
+var background_sound = document.getElementById("background_audio");
+var game_over_sound = document.getElementById("game_over_sound");
+// var jump_sound = document.getElementById("jump_sound");
+
 // Setting initial game state to start
 let game_state = "Start";
 
 // Add an eventlistener for key presses
 document.addEventListener("keydown", (e) => {
   // Start the game if enter key is pressed
-  if (e.key == "Enter" && game_state != "Play" && wasChosen) {
+  if (e.key == "Enter" && game_state != "Play" && wasChosen && startGame) {
+    game_over_sound.pause();
+    game_over_sound.currentTime = 0;
+    background_sound.play();
+
     document.querySelectorAll(".obstacle_sprite").forEach((e) => {
       e.remove();
     });
@@ -80,6 +112,10 @@ function play() {
       game_lost.style.display = "block";
       button.style.display = "block";
 
+      background_sound.pause();
+      background_sound.currentTime = 0;
+
+      game_over_sound.play();
       return;
     }
 
@@ -107,7 +143,7 @@ function play() {
           // if collision occurs
           game_state = "End";
           start_info.innerHTML = "Kliknite 'enter' za početak igre.";
-          // start_info.style.left = "15vw";
+
           return;
         } else {
           // Increase the score if player
@@ -136,6 +172,7 @@ function play() {
       if (e.key == "ArrowUp" || e.key == " ") {
         player_dy = -7.6;
       }
+      // jump_sound.play();
     });
 
     // Collision detection with player and
@@ -144,7 +181,6 @@ function play() {
     if (player_props.top <= 0 || player_props.bottom >= background.bottom) {
       game_state = "End";
       start_info.innerHTML = "Kliknite 'enter' za početak igre.";
-      // start_info.style.left = "15vw";
 
       return;
     }
