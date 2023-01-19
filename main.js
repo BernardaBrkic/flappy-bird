@@ -89,17 +89,10 @@ var game_over_sound = document.getElementById("game_over_sound");
 // Setting initial game state to start
 let game_state = "Start";
 
-let wasTouched = false;
-var touched = document.body.addEventListener("touchend", function () {
-  wasTouched = true;
-});
 // Add an eventlistener for key presses
 document.addEventListener("keydown", (e) => {
   // Start the game if enter key is pressed
-  if (
-    e.key == "Enter" ||
-    (wasTouched && game_state != "Play" && wasChosen && startGame)
-  ) {
+  if (e.key == "Enter" && game_state != "Play" && wasChosen && startGame) {
     game_over_sound.pause();
     game_over_sound.currentTime = 0;
     background_sound.play();
