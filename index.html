@@ -38,6 +38,12 @@
     <!-- soundtrack -->
     <audio id="background_audio" src="./assets/Music/soundtrack.mp3"></audio>
     <audio id="game_over_sound" src="./assets/Music/game_over.wav"></audio>
+    <audio
+      id="player_selection"
+      src="./assets/Music/player-selection.wav"
+    ></audio>
+    <audio id="clicked" src="./assets/Music/click.wav"></audio>
+
     <!-- <audio id="jump_sound" src="./assets/Music/jump.wav"></audio> -->
 
     <!-- game viewport -->
@@ -49,7 +55,7 @@
     </div>
     <div class="start_info">Kliknite "enter" za početak igre.</div>
     <h1 class="game_lost">Kraj!</h1>
-    <button onClick="window.location.reload(), refreshPage();" class="btn">
+    <button onClick="window.location.reload(), refreshPage();" class="btn" id="clicked">
       Početni izbornik
     </button>
 
