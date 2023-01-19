@@ -1,7 +1,11 @@
 // start menu
 wasChosen = false;
+var player_selection = document.getElementById("player_selection");
+var clicked = document.getElementById("clicked");
 
 function firstAgent() {
+  player_selection.currentTime = 0;
+  player_selection.play();
   document.getElementById("chosen_agent").innerHTML = "Odabran je Igrač 1!";
   wasChosen = true;
 
@@ -12,6 +16,8 @@ function firstAgent() {
 }
 
 function secondAgent() {
+  player_selection.currentTime = 0;
+  player_selection.play();
   document.getElementById("chosen_agent").innerHTML = "Odabran je Igrač 2!";
   wasChosen = true;
 
@@ -22,6 +28,8 @@ function secondAgent() {
 }
 
 function thirdAgent() {
+  player_selection.currentTime = 0;
+  player_selection.play();
   document.getElementById("chosen_agent").innerHTML = "Odabran je Igrač 3!";
   wasChosen = true;
 
@@ -32,6 +40,8 @@ function thirdAgent() {
 }
 
 function fourthAgent() {
+  player_selection.currentTime = 0;
+  player_selection.play();
   document.getElementById("chosen_agent").innerHTML = "Odabran je Igrač 4!";
   wasChosen = true;
 
@@ -43,6 +53,8 @@ function fourthAgent() {
 
 startGame = false;
 function next() {
+  clicked.currentTime = 0;
+  clicked.play();
   startGame = true;
   document.querySelector(".start").style.display = "none";
   document.querySelector(".start_info").style.display = "block";
@@ -57,11 +69,6 @@ let gravity = 0.25;
 // Getting reference to the player element
 let player = document.querySelector(".player");
 
-let wasRefreshed = false;
-function refreshPage() {
-  let wasRefreshed = true;
-  console.log("Osvježeno!!");
-}
 // Getting player element properties
 let player_props = player.getBoundingClientRect();
 let background = document.querySelector(".background").getBoundingClientRect();
@@ -89,6 +96,7 @@ document.addEventListener("keydown", (e) => {
     game_over_sound.pause();
     game_over_sound.currentTime = 0;
     background_sound.play();
+    background_sound.loop = true;
 
     document.querySelectorAll(".obstacle_sprite").forEach((e) => {
       e.remove();
