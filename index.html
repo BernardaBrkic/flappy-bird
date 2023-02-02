@@ -4,10 +4,17 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
 
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/93283f7a70.js"
+      crossorigin="anonymous"
+    ></script>
+
     <title>Kraš flappy</title>
   </head>
 
   <body>
+    <!-- Start menu -->
     <div class="start">
       <h1>Odaberite igrača s kojim želite igrati</h1>
       <div class="agents">
@@ -31,6 +38,9 @@
 
       <h2 id="chosen_agent"></h2>
       <button id="next" onclick="next()">Dalje</button>
+      <button onclick="mute()" id="mute">
+        <i class="fa-solid fa-volume-xmark"></i>
+      </button>
     </div>
 
     <div class="overlay"></div>
@@ -55,7 +65,11 @@
     </div>
     <div class="start_info">Kliknite "enter" za početak igre.</div>
     <h1 class="game_lost">Kraj!</h1>
-    <button onClick="window.location.reload(), refreshPage();" class="btn" id="clicked">
+    <button
+      onClick="window.location.reload(), refreshPage();"
+      class="btn"
+      id="clicked"
+    >
       Početni izbornik
     </button>
 
