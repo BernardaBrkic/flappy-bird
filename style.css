@@ -15,7 +15,8 @@ body {
   width: 100vw;
   background-color: #4fbae4;
   background-image: url("./assets/background.jpg");
-  background-size: 70%;
+  background-size: cover;
+  background-position: center;
 }
 .player {
   height: 110px;
@@ -69,7 +70,8 @@ h1 {
   display: none;
 }
 button.btn,
-button#next {
+button#next,
+button#mute {
   background-color: #ffff00;
   padding: 0.5rem 1rem;
   border: 0;
@@ -84,6 +86,13 @@ button.btn {
   bottom: 60vh;
   z-index: 4;
   display: none;
+}
+button#mute {
+  position: absolute;
+  bottom: 2vh;
+  left: 10%;
+  color: #ffffff;
+  background-color: #882779;
 }
 .overlay,
 .start {
@@ -143,7 +152,7 @@ button.btn {
   cursor: pointer;
   font-family: inherit;
 }
-.agent button:active {
+button:active {
   transform: scale(0.9);
   transition: 0.2s;
 }
