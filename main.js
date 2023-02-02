@@ -1,11 +1,11 @@
 // start menu
-wasChosen = false;
-var player_selection = document.getElementById("player_selection");
-var clicked = document.getElementById("clicked");
+let wasChosen = false;
+var player_selection_sound = document.getElementById("player_selection");
+var clicked_sound = document.getElementById("clicked");
 
 function firstAgent() {
-  player_selection.currentTime = 0;
-  player_selection.play();
+  player_selection_sound.currentTime = 0;
+  player_selection_sound.play();
   document.getElementById("chosen_agent").innerHTML = "Odabran je Igrač 1!";
   wasChosen = true;
 
@@ -16,8 +16,8 @@ function firstAgent() {
 }
 
 function secondAgent() {
-  player_selection.currentTime = 0;
-  player_selection.play();
+  player_selection_sound.currentTime = 0;
+  player_selection_sound.play();
   document.getElementById("chosen_agent").innerHTML = "Odabran je Igrač 2!";
   wasChosen = true;
 
@@ -28,8 +28,8 @@ function secondAgent() {
 }
 
 function thirdAgent() {
-  player_selection.currentTime = 0;
-  player_selection.play();
+  player_selection_sound.currentTime = 0;
+  player_selection_sound.play();
   document.getElementById("chosen_agent").innerHTML = "Odabran je Igrač 3!";
   wasChosen = true;
 
@@ -40,8 +40,8 @@ function thirdAgent() {
 }
 
 function fourthAgent() {
-  player_selection.currentTime = 0;
-  player_selection.play();
+  player_selection_sound.currentTime = 0;
+  player_selection_sound.play();
   document.getElementById("chosen_agent").innerHTML = "Odabran je Igrač 4!";
   wasChosen = true;
 
@@ -51,10 +51,30 @@ function fourthAgent() {
   }
 }
 
-startGame = false;
+let wasMuted = false;
+let wasClicked = false;
+function mute() {
+  wasMuted = !wasMuted;
+  wasClicked = !wasClicked;
+
+  if (wasMuted) {
+    background_sound.muted = true;
+    game_over_sound.muted = true;
+    player_selection_sound.muted = true;
+    clicked_sound.muted = true;
+  }
+  if (!wasClicked && !wasMuted) {
+    background_sound.muted = false;
+    game_over_sound.muted = false;
+    player_selection_sound.muted = false;
+    clicked_sound.muted = false;
+  }
+}
+
+let startGame = false;
 function next() {
-  clicked.currentTime = 0;
-  clicked.play();
+  clicked_sound.currentTime = 0;
+  clicked_sound.play();
   startGame = true;
   document.querySelector(".start").style.display = "none";
   document.querySelector(".start_info").style.display = "block";
